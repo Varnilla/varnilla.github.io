@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        body {
+            background-color: #36393f;
+        }
+
+        .container {
+            text-align: center;
+            padding-top: 400px;
+        }
+
+        .button {
+            background-color: #5865F2;
+            color: white;
+            border-radius: 10px;
+            font-size: 64px;
+            font-family: cursive;
+            transition-duration: 0.4s;
+            width: 300px;
+            border: none;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <button type="button" , class="button" , id="clickButton">Click me</button>
+        <script>
+            let score = 0;
+            const x = document.getElementById("clickButton")
+            x.addEventListener("mouseover", function () {
+                this.style.backgroundColor = "#4856f0";
+            })
+            x.addEventListener("mouseleave", function () {
+                this.style.backgroundColor = "#5865F2";
+            })
+            x.onclick = function clicked() {
+                if (score == 0) {
+                    setTimeout(() => {
+                        this.disabled = true;
+                        this.innerHTML = score / 5;
+                        this.style.backgroundColor = "#ED4245";
+                        setTimeout(() => {
+                            this.disabled = false;
+                            this.innerHTML = "Click me";
+                            this.style.backgroundColor = "#5865F2";
+                            score = 0;
+                        }, 3000);
+                    }, 5000);
+                }
+                score++;
+                this.innerHTML = score;
+            }
+        </script>
+</body>
+
+</html>
